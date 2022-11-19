@@ -31,7 +31,8 @@ namespace Musica_mundo.Controllers
         // GET: Usuario/Create
         public ActionResult Create()
         {
-            return View();
+
+            return View(new usuario()); // retornando a la vista de usuarios 
         }
 
         // POST: Usuario/Create
