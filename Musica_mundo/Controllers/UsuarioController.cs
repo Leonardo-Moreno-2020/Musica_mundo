@@ -11,7 +11,15 @@ namespace Musica_mundo.Controllers
         // GET: Usuario
         public ActionResult Index()
         {
-            return View();
+            List<usuario> usuarios = new List<usuario>(); //instanciar la lista de usuarios
+            using (musica_mundoEntities users = new musica_mundoEntities()) // instanciando los elementos de la bd
+            {
+                usuarios = users.usuario.ToList<usuario>(); //consultado todo lo que esta en la tabla usuario
+
+            }
+
+
+                return View(usuarios);
         }
 
         // GET: Usuario/Details/5
