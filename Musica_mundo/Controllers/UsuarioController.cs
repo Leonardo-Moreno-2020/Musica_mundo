@@ -37,18 +37,14 @@ namespace Musica_mundo.Controllers
 
         // POST: Usuario/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(usuario usuarios)
         {
-            try
+            using (musica_mundoEntities musica_mundo = new musica_mundoEntities()) //instanciando la bd
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                musica_mundo.usuario.Add(usuarios); // adicionar usuarios y los datos del formulario  
+                musica_mundo.SaveChanges(); // guardando los cambios en la base de datos
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
 
         // GET: Usuario/Edit/5
